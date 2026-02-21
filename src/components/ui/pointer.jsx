@@ -44,7 +44,7 @@ export const Pointer = ({ children, className, title }) => {
         cursor: "none",
       }}
       ref={ref}
-      className={cn("relative", className)}
+      className={cn("hide-main-cursor relative", className)}
     >
       <AnimatePresence>
         {isInside && (

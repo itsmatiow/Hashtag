@@ -69,7 +69,7 @@ export default function Contact() {
               <p className="text-justify text-base leading-relaxed font-semibold text-black md:mt-4 md:text-lg lg:text-xl xl:text-2xl dark:text-white">
                 برای شروع همکاری، مشاوره رایگان یا فقط یه گپ دوستانه، می‌تونین
                 از طریق فرم روبه‌رو یا راهای ارتباطی زیر با تیم هشتگ در تماس
-                باشید. همیشه خوشحال میشیم صدای یه کارفرمای جدیدو بشنویم!
+                باشید.
               </p>
 
               <div className="mt-4 flex flex-col gap-4 xl:gap-6">
@@ -172,7 +172,7 @@ export default function Contact() {
                       name="user_name" // 👈 الزامی برای EmailJS
                       required
                       placeholder="مثلا: علی محمدی"
-                      className="focus:border-p400 focus:ring-p400/20 w-full rounded-xl border border-black/10 bg-white/50 px-4 py-3 text-sm font-semibold text-black transition-all outline-none focus:ring-2 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl dark:border-white/10 dark:bg-black/20 dark:text-white"
+                      className="focus:border-p400 focus:ring-p400/20 w-full rounded-xl border border-black/10 bg-white/50 px-4 py-3 text-sm font-semibold text-black transition-all outline-none placeholder:text-neutral-500 focus:ring-2 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl dark:border-white/10 dark:bg-black/20 dark:text-white"
                     />
                   </div>
 
@@ -184,8 +184,8 @@ export default function Contact() {
                       type="text"
                       name="user_contact" // 👈 الزامی برای EmailJS
                       required
-                      placeholder="0912... یا email@..."
-                      className="focus:border-p400 focus:ring-p400/20 w-full rounded-xl border border-black/10 bg-white/50 px-4 py-3 text-sm font-semibold text-black transition-all outline-none focus:ring-2 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl dark:border-white/10 dark:bg-black/20 dark:text-white"
+                      placeholder="باهاتون تماس میگیریم..."
+                      className="focus:border-p400 focus:ring-p400/20 w-full rounded-xl border border-black/10 bg-white/50 px-4 py-3 text-sm font-semibold text-black transition-all outline-none placeholder:text-neutral-500 focus:ring-2 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl dark:border-white/10 dark:bg-black/20 dark:text-white"
                     />
                   </div>
                 </div>
@@ -199,7 +199,7 @@ export default function Contact() {
                     required
                     rows="5"
                     placeholder="کمی درباره ایده، نیازمندی‌ها و هدفتون برامون بنویسید..."
-                    className="focus:border-p400 focus:ring-p400/20 w-full resize-none rounded-xl border border-black/10 bg-white/50 px-4 py-3 text-sm font-semibold text-black transition-all outline-none focus:ring-2 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl dark:border-white/10 dark:bg-black/20 dark:text-white"
+                    className="focus:border-p400 focus:ring-p400/20 w-full resize-none rounded-xl border border-black/10 bg-white/50 px-4 py-3 text-sm font-semibold text-black transition-all outline-none placeholder:text-neutral-500 focus:ring-2 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl dark:border-white/10 dark:bg-black/20 dark:text-white"
                   ></textarea>
                 </div>
 

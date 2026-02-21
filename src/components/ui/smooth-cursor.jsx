@@ -74,9 +74,9 @@ export function SmoothCursor({
   },
 }) {
   const [isMoving, setIsMoving] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
-  const [isOnDock, setIsOnDock] = useState(false); // استیت جدید برای داک
+  // const [isOnDock, setIsOnDock] = useState(false); // استیت جدید برای داک
+  const [isHidden, setIsHidden] = useState(false);
   const lastMousePos = useRef({ x: 0, y: 0 });
   const velocity = useRef({ x: 0, y: 0 });
   const lastUpdateTime = useRef(Date.now());
@@ -114,15 +114,21 @@ export function SmoothCursor({
 
     const smoothMouseMove = (e) => {
       // بررسی می‌کنیم آیا موس روی داک‌بار هست یا نه
-      const dockElement = e.target.closest("#dock-desktop, #dock-mobile");
+      // const dockElement = e.target.closest("#dock-desktop, #dock-mobile");
+      const hideElement = e.target.closest(
+        "#dock-desktop, #dock-mobile, .hide-main-cursor, input, textarea",
+      );
       // بررسی می‌کنیم آیا موس روی دکمه/لینک (خارج از داک) هست یا نه
       const interactiveElement = e.target.closest(
         'button, a, [role="button"], .cursor-pointer',
       );
 
-      setIsOnDock(!!dockElement);
+      // setIsOnDock(!!dockElement);
+      setIsHidden(!!hideElement);
+
       // فقط زمانی حالت هاور کاستوم رو فعال کن که روی دکمه باشه ولی روی داک نباشه
-      setIsHovering(!!interactiveElement && !dockElement);
+      // setIsHovering(!!interactiveElement && !dockElement);
+      setIsHovering(!!interactiveElement && !hideElement);
       const currentPos = { x: e.clientX, y: e.clientY };
       updateVelocity(currentPos);
 
@@ -187,7 +193,7 @@ export function SmoothCursor({
         translateY: "-50%",
         rotate: rotation,
         scale: scale,
-        zIndex: 100,
+        zIndex: 99999,
         pointerEvents: "none",
         willChange: "transform",
       }}
@@ -195,9 +201,11 @@ export function SmoothCursor({
       // animate={{ scale: 1, opacity: isVisible ? 1 : 0 }}
       animate={{
         // روی داک: کاملا جمع میشه (0) | روی دکمه‌ها: کوچیک میشه (0.5) | حالت عادی: کامل (1)
-        scale: isOnDock ? 0 : isHovering ? 0.5 : 1,
+        // scale: isOnDock ? 0 : isHovering ? 0.5 : 1,
+        scale: isHidden ? 0 : isHovering ? 0.5 : 1,
         // روی داک: نامرئی میشه (0) | روی دکمه‌ها: نیمه‌شفاف میشه (0.6) | حالت عادی: پررنگ (1)
-        opacity: isOnDock ? 0 : isHovering ? 0 : 1,
+        // opacity: isOnDock ? 0 : isHovering ? 1 : 1,
+        opacity: isHidden ? 0 : 1,
       }}
       transition={{
         type: "spring",
