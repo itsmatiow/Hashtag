@@ -4,11 +4,11 @@ import {
   DraggableCardContainer,
 } from "@/components/ui/draggable-card";
 import { RefreshCcw } from "lucide-react"; // اگر آیکون داری، وگرنه متن بذار
-import qalam from "@/assets/projects/fixsize/qalam.png";
-import cookp from "@/assets/projects/fixsize/cookp.png";
-import choobl from "@/assets/projects/fixsize/choobl.png";
-import movie from "@/assets/projects/fixsize/movie.png";
-import trip from "@/assets/projects/fixsize/trip.png";
+import qalam from "@/assets/projects/fixsize/qalam.webp";
+import cookp from "@/assets/projects/fixsize/cookp.webp";
+import choobl from "@/assets/projects/fixsize/choobl.webp";
+import movie from "@/assets/projects/fixsize/movie.webp";
+import trip from "@/assets/projects/fixsize/trip.webp";
 
 export default function DragableCards({ className }) {
   const baseClassName = `absolute lg:w-[35%] lg:h-fit md:w-fit w-120`;

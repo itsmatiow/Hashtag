@@ -13,14 +13,14 @@ import contact from "@/assets/contact.png";
 import question from "@/assets/question.png";
 import ThemeToggle from "../ui/ThemeToggle";
 import { Link } from "react-router-dom";
+const dockItems = [
+  { icon: hashtag, tooltip: "خانه", path: "/" },
+  { icon: list, tooltip: "نمونه کار", path: "/projects" },
+  { icon: journey, tooltip: "روند کار", path: "/workflow" },
+  { icon: question, tooltip: "سوالات متداول", path: "/faq" },
+  { icon: contact, tooltip: "تماس با ما", path: "/contact" },
+];
 export default function DockBarDesktop() {
-  const dockItems = [
-    { icon: hashtag, tooltip: "خانه", path: "/" },
-    { icon: list, tooltip: "نمونه کار", path: "/projects" },
-    { icon: journey, tooltip: "روند کار", path: "/workflow" },
-    { icon: question, tooltip: "سوالات متداول", path: "/faq" },
-    { icon: contact, tooltip: "تماس با ما", path: "/contact" },
-  ];
   return (
     <>
       <TooltipProvider>

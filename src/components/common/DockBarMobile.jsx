@@ -1,54 +1,3 @@
-// import React from "react";
-// import { Dock, DockIcon } from "@/components/ui/dock";
-// import {
-//   Tooltip,
-//   TooltipContent,
-//   TooltipProvider,
-//   TooltipTrigger,
-// } from "@/components/ui/tooltip";
-// import hashtag from "@/assets/hashtag.png";
-// import list from "@/assets/projects.png";
-// import journey from "@/assets/journey.png";
-// import contact from "@/assets/contact.png";
-// import question from "@/assets/question.png";
-// import ThemeToggle from "../ui/ThemeToggle";
-// import { Link } from "react-router-dom";
-// export default function DockBarMobile() {
-//   const dockItems = [
-//     { icon: hashtag, tooltip: "خانه", path: "/" },
-//     { icon: list, tooltip: "نمونه کار", path: "/projects" },
-//     { icon: journey, tooltip: "روند کار", path: "/workflow" },
-//     { icon: question, tooltip: "سوالات متداول", path: "/faq" },
-//     { icon: contact, tooltip: "تماس با ما", path: "/contact" },
-//   ];
-//   return (
-//     <>
-//       <Dock
-//         iconSize={50}
-//         iconMagnification={65}
-//         className="z-50 border-1 border-black/20 bg-black/15 dark:border-white/20 dark:bg-white/15"
-//       >
-//         {dockItems.map((item, index) => (
-//           <DockIcon key={index} tooltip={item.tooltip}>
-//             <Link to={item.path} className="h-full w-full rounded-full">
-//               <img
-//                 src={item.icon}
-//                 alt={item.tooltip}
-//                 className="h-full w-full object-contain p-2 invert-0 dark:invert"
-//               />
-//             </Link>
-//           </DockIcon>
-//         ))}
-
-//         <DockIcon tooltip="تغییر تم">
-//           <button className="h-full w-full rounded-full">
-//             <ThemeToggle />
-//           </button>
-//         </DockIcon>
-//       </Dock>
-//     </>
-//   );
-// }
 import React from "react";
 import { Dock, DockIcon } from "@/components/ui/dock";
 
@@ -61,15 +10,14 @@ import ThemeToggle from "../ui/ThemeToggle";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
+const dockItems = [
+  { icon: hashtag, label: "خانه", path: "/" },
+  { icon: list, label: "نمونه‌کار", path: "/projects" },
+  { icon: journey, label: "روند‌کار", path: "/workflow" },
+  { icon: question, label: "سوالات", path: "/faq" },
+  { icon: contact, label: "تماس", path: "/contact" },
+];
 export default function DockBarMobile() {
-  const dockItems = [
-    { icon: hashtag, label: "خانه", path: "/" },
-    { icon: list, label: "نمونه‌کار", path: "/projects" },
-    { icon: journey, label: "روند‌کار", path: "/workflow" },
-    { icon: question, label: "سوالات", path: "/faq" },
-    { icon: contact, label: "تماس", path: "/contact" },
-  ];
-
   return (
     // <div className="font-display fixed right-0 bottom-4 left-0 z-50 flex">
     <div className="font-display fixed bottom-0 left-1/2 z-50 flex -translate-x-1/2 transform items-center">
