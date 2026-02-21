@@ -1,0 +1,185 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-display: "Mestika", sans-serif;
+  --font-arabic: "Lateef", serif;
+  --breakpoint-se: 376px;
+}
+@font-face {
+  font-family: Dastan;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/public/fonts/dastan/Dastan-Dot-2.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Mestika;
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("/public/fonts/Mestika/Thin.otf") format("opentype");
+}
+@font-face {
+  font-family: Mestika;
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("/public/fonts/Mestika/ExtraLight.otf") format("opentype");
+}
+@font-face {
+  font-family: Mestika;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/public/fonts/Mestika/Light.otf") format("opentype");
+}
+@font-face {
+  font-family: Mestika;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/public/fonts/Mestika/Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: Mestika;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/public/fonts/Mestika/Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: Mestika;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/public/fonts/Mestika/SemiBold.otf") format("opentype");
+}
+@font-face {
+  font-family: Mestika;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/public/fonts/Mestika/Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: Mestika;
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/public/fonts/Mestika/ExtraBold.otf") format("opentype");
+}
+@font-face {
+  font-family: Mestika;
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("/public/fonts/Mestika/Black.otf") format("opentype");
+}
+
+@theme {
+  /* نگاشت متغیرهای CSS به نام‌های Tailwind */
+
+  --color-p50: var(--p50);
+  --color-p100: var(--p100);
+  --color-p200: var(--p200);
+  --color-p300: var(--p300);
+  --color-p400: var(--p400);
+  --color-p500: var(--p500);
+  --color-p600: var(--p600);
+  --color-p700: var(--p700);
+  --color-p800: var(--p800);
+  --color-p900: var(--p900);
+  --color-p950: var(--p950);
+  --color-bg: var(--color-bg);
+  --color-accent: var(--accent);
+  /* انیمیشن نرم برای تغییر تم */
+  --transition-theme: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root {
+  /* حالت Light */
+  --p50: #edfbff;
+  --p100: #d6f3ff;
+  --p200: #b5edff;
+  --p300: #83e4ff;
+  --p400: #48d2ff;
+  --p500: #1eb5ff;
+  --p600: #0698ff;
+  --p700: #0084ff;
+  --p800: #0864c5;
+  --p900: #0d569b;
+  --p950: #0e345d;
+  --color-bg: #dce4ff;
+  --accent: #ff0d62 /* ///////////////////////////////////////////// */;
+
+  --dock-height: 70px;
+  /* ///////////////////////////////////////////// */
+}
+
+.dark {
+  /* حالت Dark */
+  --p50: #f2fbff;
+  --p100: #ebf9ff;
+  --p200: #d7f2ff;
+  --p300: #c0ecff;
+  --p400: #a7e6ff;
+  --p500: #8ae0ff;
+  --p600: #65daff;
+  --p700: #00d4ff;
+  --p800: #0087a4;
+  --p900: #004453;
+  --p950: #00262f;
+  --color-bg: #110d33;
+  /* --color-bg: #080619; */
+  --accent: #ff0d62 /* ///////////////////////////////////////////// */;
+
+  /* ///////////////////////////////////////////// */
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--p700);
+    transition: var(--transition-theme);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@theme inline {
+  --animate-grid: grid 15s linear infinite;
+  @keyframes grid {
+    0% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+/* input,
+textarea,
+select {
+  cursor: text !important;
+} */
+/* aside,
+aside * {
+  cursor: none !important;
+} */
+@layer base {
+  /* ۱. غیب کردن کرسر ویندوز در کل سایت (روی متن و اینپوت هم همون کرسر خودت میمونه) */
+  * {
+    cursor: none !important;
+  }
+
+  /* ۲. کل داک‌بار و تمام آیکون‌هاش یکپارچه تبدیل به پوینتر (دست) ویندوز بشن */
+  #dock-desktop,
+  #dock-mobile,
+  #dock-desktop *,
+  #dock-mobile * {
+    cursor: pointer !important;
+  }
+}
