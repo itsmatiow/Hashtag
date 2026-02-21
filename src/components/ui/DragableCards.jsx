@@ -10,6 +10,8 @@ import choobl from "@/assets/projects/fixsize/choobl.webp";
 import movie from "@/assets/projects/fixsize/movie.webp";
 import trip from "@/assets/projects/fixsize/trip.webp";
 
+import LazyImage from "@/components/ui/LazyImage";
+
 export default function DragableCards({ className }) {
   const baseClassName = `absolute lg:w-[35%] lg:h-fit md:w-fit w-120`;
 
@@ -67,7 +69,7 @@ export default function DragableCards({ className }) {
           // 3. پاس دادن سیگنال به فرزندان
           resetSignal={resetSignal}
         >
-          <img
+          <LazyImage
             src={item.image}
             alt={item.title}
             className="pointer-events-none relative z-10 h-40 w-78 rounded-xl object-cover md:h-fit md:w-100 lg:w-full xl:h-full xl:w-full"

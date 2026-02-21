@@ -4,6 +4,7 @@ import { useOutsideClick } from "../../hooks/use-outside-click";
 import { Link } from "react-router-dom";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import arrow from "@/assets/arrow.png";
+import LazyImage from "@/components/ui/LazyImage";
 
 // -------- ایمپورت عکس‌های اصلی پروژه‌ها --------
 import qalam from "@/assets/projects/fixsize/qalam.webp";
@@ -337,7 +338,7 @@ export default function ExpandableCards() {
                         {active.gallery && active.gallery.length > 0 && (
                           <div className="mt-4 columns-1 gap-4 space-y-4 sm:columns-2">
                             {active.gallery.map((img, index) => (
-                              <img
+                              <LazyImage
                                 key={index}
                                 src={img}
                                 alt={`${active.title} - ${index}`}
@@ -373,7 +374,7 @@ export default function ExpandableCards() {
                 // کادر عکس موبایلی: عکس‌ها دقیقاً از بالا کراپ می‌شوند
                 className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl md:h-24 md:w-32 lg:h-24 lg:w-40 xl:h-25 xl:w-40"
               >
-                <img
+                <LazyImage
                   src={card.src}
                   alt={card.title}
                   className="absolute inset-0 h-full w-full object-cover object-top"
