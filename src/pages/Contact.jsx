@@ -140,10 +140,10 @@ export default function Contact() {
                       شماره تماس
                     </h4>
                     <p
-                      className="mt-1 text-base font-black text-black tabular-nums lg:text-lg xl:text-xl 2xl:text-2xl dark:text-white"
+                      className="mt-1 text-base font-black text-black lg:text-lg xl:text-xl 2xl:text-2xl dark:text-white"
                       style={{ direction: "ltr" }}
                     >
-                      ۰۹۳۰-۵۳۵-۱۸۸۴
+                      ۰۹۳۰۵۳۵۱۸۸۴
                     </p>
                   </div>
                 </a>
@@ -164,7 +164,7 @@ export default function Contact() {
               >
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-1">
                   <div className="flex flex-col gap-2">
-                    <label className="text-base font-bold text-black max-md:hidden lg:text-lg xl:text-xl 2xl:text-2xl dark:text-white">
+                    <label className="text-base font-bold text-black max-md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl dark:text-white">
                       نام و نام خانوادگی
                     </label>
                     <input
@@ -177,7 +177,7 @@ export default function Contact() {
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-base font-bold text-black max-md:hidden lg:text-lg xl:text-xl 2xl:text-2xl dark:text-white">
+                    <label className="text-base font-bold text-black max-md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl dark:text-white">
                       شماره / ایمیل
                     </label>
                     <input
@@ -191,7 +191,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-base font-bold text-black max-md:hidden lg:text-lg xl:text-xl 2xl:text-2xl dark:text-white">
+                  <label className="text-base font-bold text-black max-md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl dark:text-white">
                     توضیحات پروژه شما
                   </label>
                   <textarea
