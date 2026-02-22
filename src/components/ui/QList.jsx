@@ -5,54 +5,66 @@ import { cn } from "@/lib/utils";
 // ایمپورت AnimatedList و AnimatedListItem جدید
 import { AnimatedList, AnimatedListItem } from "@/components/ui/animated-list";
 
+import q1 from "@/assets/avatar/q1.webp";
+import q2 from "@/assets/avatar/q2.webp";
+import q3 from "@/assets/avatar/q3.webp";
+import q4 from "@/assets/avatar/q4.webp";
+import q5 from "@/assets/avatar/q5.webp";
+import q6 from "@/assets/avatar/q6.webp";
+import q7 from "@/assets/avatar/q7.webp";
+
 const initialNotifications = [
   {
     name: "q1",
+    avatar: { q1 },
     description: "بعد از تحویل، پشتیبانی دارید؟",
     color: "#00C9A7",
   },
   {
     name: "q2",
+    avatar: { q2 },
+
     description: "از چه تکنولوژی‌ای استفاده میشه؟",
     color: "#FFB800",
   },
   {
     name: "q3",
+    avatar: { q3 },
+
     description: "هزینه و زمان اجرا چقدره؟",
     color: "#FF3D71",
   },
   {
     name: "q4",
+    avatar: { q4 },
+
     description: "قبل از شروع، مشاوره هم دارید؟",
     color: "#1E86FF",
   },
   {
     name: "q5",
+    avatar: { q5 },
+
     description: "میشه وسط اجرا تغییرات بدم؟",
     color: "#8b5cf6",
   },
   {
     name: "q6",
+    avatar: { q6 },
+
     description: "پرداخت‌ها به چه صورته؟",
     color: "#ec4899",
   },
   {
     name: "q7",
+    avatar: { q7 },
+
     description: "قابلیت توسعه در آینده وجود داره؟",
     color: "#f97316",
   },
 ];
-// پیش‌بارگذاری عکس‌ها در مرورگر برای جلوگیری از ریکوئست‌های تکراری
-if (typeof window !== "undefined") {
-  initialNotifications.forEach((item) => {
-    const img = new Image();
-    img.src = `https://api.dicebear.com/9.x/micah/svg?seed=${item.name}`;
-  });
-}
 
-const Notification = ({ description, color, name }) => {
-  const avatarUrl = `https://api.dicebear.com/9.x/micah/svg?seed=${name}`;
-
+const Notification = ({ description, color, name, avatar }) => {
   return (
     <figure
       className={cn(
@@ -67,11 +79,7 @@ const Notification = ({ description, color, name }) => {
           className="flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-xl md:size-16 xl:size-18 2xl:size-20"
           style={{ backgroundColor: color }} // رنگ پس‌زمینه رو نگه داشتم که با آواتار مچ بشه
         >
-          <img
-            src={avatarUrl}
-            alt={name}
-            className="h-full w-full object-cover"
-          />
+          <img src={avatar} alt={name} className="h-full w-full object-cover" />
         </div>
         <div className="flex flex-col overflow-hidden">
           <p className="se:text-base text-sm font-semibold text-black md:text-lg lg:text-xl dark:text-white">
