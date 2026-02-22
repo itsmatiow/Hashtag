@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
-export default function CustomScrollbar({ children }) {
+export default function CustomScrollbar({ children, className }) {
   const contentRef = useRef(null);
   const trackRef = useRef(null);
   const thumbRef = useRef(null);
@@ -45,10 +45,19 @@ export default function CustomScrollbar({ children }) {
     const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
     const trackHeight = trackRef.current.clientHeight;
 
-    const scrollPercentage = scrollTop / (scrollHeight - clientHeight);
+    const maxScrollTop = scrollHeight - clientHeight;
+    const scrollPercentage = maxScrollTop > 0 ? scrollTop / maxScrollTop : 0;
+
+    // const scrollPercentage = scrollTop / (scrollHeight - clientHeight);
     const maxThumbTop = trackHeight - thumbHeight;
 
-    thumbRef.current.style.transform = `translateY(${scrollPercentage * maxThumbTop}px)`;
+    //   thumbRef.current.style.transform = `translateY(${scrollPercentage * maxThumbTop}px)`;
+    // };
+    requestAnimationFrame(() => {
+      if (thumbRef.current) {
+        thumbRef.current.style.transform = `translateY(${scrollPercentage * maxThumbTop}px)`;
+      }
+    });
   };
 
   // ۳. منطق گرفتن و کشیدن (Drag) دکمه صورتی
@@ -95,7 +104,7 @@ export default function CustomScrollbar({ children }) {
   }, [isDragging, thumbHeight]);
 
   return (
-    <div className="relative h-full w-full overflow-hidden">
+    <div className={`relative h-dvh w-full overflow-hidden ${className}`}>
       {/* نوار اسکرول کاستوم (دقیقا با همون استایل صفحه اصلی) */}
       <div
         ref={trackRef}

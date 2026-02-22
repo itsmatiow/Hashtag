@@ -45,7 +45,7 @@ export default function Contact() {
 
   return (
     <CustomScrollbar>
-      <div className="font-display grid h-dvh w-full grid-cols-1 grid-rows-[auto_auto_1fr_auto] px-6 md:px-12 lg:px-24">
+      <div className="font-display flex w-full flex-col px-6 md:px-12 lg:px-24">
         {/* هدر صفحه (مثل قبل) */}
         <div className="se:mt-6 se:mb-2 se:gap-4 mt-4 mb-12 flex w-full flex-col items-center gap-2 px-0 lg:mt-8 lg:mb-16 lg:flex-row lg:justify-between lg:gap-28 xl:gap-60">
           <span className="text-accent flex items-center gap-1 rounded-full border border-black/10 bg-black/5 px-6 py-3 text-lg font-black text-nowrap backdrop-blur-md dark:border-white/10 dark:bg-white/5">

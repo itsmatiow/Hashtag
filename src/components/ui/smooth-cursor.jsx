@@ -73,6 +73,8 @@ export function SmoothCursor({
     restDelta: 0.001,
   },
 }) {
+  const [isDesktop, setIsDesktop] = useState(true);
+
   const [isMoving, setIsMoving] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   // const [isOnDock, setIsOnDock] = useState(false); // استیت جدید برای داک
@@ -95,6 +97,17 @@ export function SmoothCursor({
     stiffness: 500,
     damping: 35,
   });
+
+  useEffect(() => {
+    const checkDevice = () => {
+      // عرض ۱۰۲۴ پیکسل به بالا رو دسکتاپ در نظر می‌گیریم (تبلت‌ها معمولا زیر این عدد هستن)
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkDevice(); // همون اول یه بار چک می‌کنه
+    window.addEventListener("resize", checkDevice); // اگه سایز صفحه عوض شد آپدیت می‌کنه
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
 
   useEffect(() => {
     const updateVelocity = (currentPos) => {
@@ -182,7 +195,7 @@ export function SmoothCursor({
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, [cursorX, cursorY, rotation, scale]);
-
+  if (!isDesktop || typeof document === "undefined") return null;
   return (
     <motion.div
       style={{

@@ -42,6 +42,13 @@ const initialNotifications = [
     color: "#f97316",
   },
 ];
+// پیش‌بارگذاری عکس‌ها در مرورگر برای جلوگیری از ریکوئست‌های تکراری
+if (typeof window !== "undefined") {
+  initialNotifications.forEach((item) => {
+    const img = new Image();
+    img.src = `https://api.dicebear.com/9.x/micah/svg?seed=${item.name}`;
+  });
+}
 
 const Notification = ({ description, color, name }) => {
   const avatarUrl = `https://api.dicebear.com/9.x/micah/svg?seed=${name}`;

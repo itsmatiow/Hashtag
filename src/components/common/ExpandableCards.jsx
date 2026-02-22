@@ -193,8 +193,18 @@ export default function ExpandableCards() {
   const [active, setActive] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const isLightboxOpen = useRef(false);
+
+  const [isMobile, setIsMobile] = useState(false); // 🔴 ۱. این استیت رو اضافه کن
+
   const ref = useRef(null);
   const id = useId();
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile(); // همون اول چک میکنه
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // 👈 ۲. این رو اضافه کن که به ما بگه آیا الان لایت‌باکس بازه یا نه
   useEffect(() => {
@@ -236,7 +246,7 @@ export default function ExpandableCards() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-9990 h-full w-full bg-black/40 backdrop-blur-md dark:bg-black/60"
+            className="fixed inset-0 z-9990 h-full w-full bg-black/40 md:backdrop-blur-md dark:bg-black/60"
           />
         )}
       </AnimatePresence>
@@ -257,9 +267,36 @@ export default function ExpandableCards() {
             </motion.button>
 
             {/* لایه اصلی کارت */}
-            <motion.div
+            {/* <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
+              style={{ willChange: "transform, opacity, border-radius" }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30, // جلوگیری از لرزش اضافی در پایان انیمیشن
+                mass: 0.8, // سبک‌تر کردن وزن کارت برای حرکت سریع‌تر
+              }}
+              className="flex max-h-[80dvh] w-full transform-gpu flex-col overflow-hidden rounded-3xl border border-white/70 bg-white shadow-2xl md:max-w-[90%] lg:max-w-[80%] xl:max-w-[60%] dark:bg-neutral-900"
+            > */}
+            {/* لایه اصلی کارت */}
+            <motion.div
+              // 🔴 جادوی تقلب اینجاست: اگر موبایل بود، layoutId رو بی‌خیال شو!
+              layoutId={isMobile ? undefined : `card-${active.title}-${id}`}
+              // 🔴 انیمیشن جایگزین و بسیار سبک برای موبایل (شبیه باز شدن مدال تو آیفون)
+              initial={isMobile ? { opacity: 0, y: 50, scale: 0.95 } : false}
+              animate={isMobile ? { opacity: 1, y: 0, scale: 1 } : false}
+              exit={isMobile ? { opacity: 0, y: 20, scale: 0.95 } : false}
+              ref={ref}
+              style={{ willChange: "transform, opacity, border-radius" }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 30,
+                mass: 0.8,
+                // تو موبایل یکم سریع‌ترش می‌کنیم که حس سرعت بده
+                duration: isMobile ? 0.2 : undefined,
+              }}
               className="flex max-h-[80dvh] w-full flex-col overflow-hidden rounded-3xl border border-white/70 bg-white shadow-2xl md:max-w-[90%] lg:max-w-[80%] xl:max-w-[60%] dark:bg-neutral-900"
             >
               <div className="flex h-full w-full flex-col overflow-x-hidden overflow-y-auto rounded-3xl [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#FF0D62] [&::-webkit-scrollbar-track]:bg-black/5 dark:[&::-webkit-scrollbar-track]:bg-white/5">
@@ -268,6 +305,14 @@ export default function ExpandableCards() {
                 <div className="relative h-64 w-full shrink-0 bg-black/5 sm:h-80 md:h-100 dark:bg-white/5">
                   <motion.div
                     layoutId={`image-${active.title}-${id}`}
+                    //برای لگ کمتر:
+                    // layoutId={isMobile ? undefined : `image-${active.title}-${id}`}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30,
+                      mass: 0.8,
+                    }}
                     className="h-full w-full"
                   >
                     <img
@@ -319,10 +364,15 @@ export default function ExpandableCards() {
                   {/* بخش محتوا و گالری عکس‌ها */}
                   <div className="relative px-4 pt-2 pb-8">
                     <motion.div
-                      layout
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
+                      // layout
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, transition: { duration: 0.1 } }}
+                      transition={{
+                        delay: 0.2,
+                        duration: 0.3,
+                        ease: "easeOut",
+                      }}
                       className="flex h-fit flex-col items-start gap-4 text-sm font-medium text-black md:text-sm lg:text-base dark:text-white"
                     >
                       {/* جایگزین کدهای قبلی */}

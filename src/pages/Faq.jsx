@@ -64,7 +64,7 @@ export default function Faq() {
 
   return (
     <CustomScrollbar>
-      <div className="font-display grid h-dvh w-full grid-cols-1 grid-rows-[auto_auto_1fr_auto] px-6 sm:px-1 lg:px-24">
+      <div className="font-display flex min-h-dvh w-full flex-col px-6 sm:px-1 lg:px-24">
         {/* هدر صفحه */}
         <div className="se:mt-6 se:mb-2 se:gap-4 mt-4 mb-1 flex w-full flex-col items-center gap-2 px-0 lg:mt-8 lg:mb-6 lg:flex-row lg:justify-between lg:gap-28 xl:gap-60">
           <span className="text-accent flex items-center gap-1 rounded-full border border-black/10 bg-black/5 px-6 py-3 text-lg font-black text-nowrap backdrop-blur-md dark:border-white/10 dark:bg-white/5">
@@ -78,7 +78,7 @@ export default function Faq() {
 
         {/* بخش لیست آکاردئون */}
         <div className="mx-auto h-full w-full overflow-y-auto [&::-webkit-scrollbar]:hidden">
-          <div className="flex w-full flex-col gap-4 pb-12 md:px-20 lg:px-20 xl:px-50">
+          <div className="flex w-full flex-col gap-4 pb-20 md:px-20 lg:px-20 xl:px-50">
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
 
