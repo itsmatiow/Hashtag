@@ -16,48 +16,48 @@ import q7 from "@/assets/avatar/q7.webp";
 const initialNotifications = [
   {
     name: "q1",
-    avatar: { q1 },
+    avatar: q1,
     description: "بعد از تحویل، پشتیبانی دارید؟",
     color: "#00C9A7",
   },
   {
     name: "q2",
-    avatar: { q2 },
+    avatar: q2,
 
     description: "از چه تکنولوژی‌ای استفاده میشه؟",
     color: "#FFB800",
   },
   {
     name: "q3",
-    avatar: { q3 },
+    avatar: q3,
 
     description: "هزینه و زمان اجرا چقدره؟",
     color: "#FF3D71",
   },
   {
     name: "q4",
-    avatar: { q4 },
+    avatar: q4,
 
     description: "قبل از شروع، مشاوره هم دارید؟",
     color: "#1E86FF",
   },
   {
     name: "q5",
-    avatar: { q5 },
+    avatar: q5,
 
     description: "میشه وسط اجرا تغییرات بدم؟",
     color: "#8b5cf6",
   },
   {
     name: "q6",
-    avatar: { q6 },
+    avatar: q6,
 
     description: "پرداخت‌ها به چه صورته؟",
     color: "#ec4899",
   },
   {
     name: "q7",
-    avatar: { q7 },
+    avatar: q7,
 
     description: "قابلیت توسعه در آینده وجود داره؟",
     color: "#f97316",
