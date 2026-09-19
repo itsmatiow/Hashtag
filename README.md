@@ -14,6 +14,13 @@ The project focuses on a modern, responsive interface with smooth interactions a
 * Responsive navigation
 * Optimized frontend structure
 
+## 📸 Screenshots
+
+Here are some screenshots from the project, showcasing its interface and user experience.
+<img width="1862" height="964" alt="hash 1" src="https://github.com/user-attachments/assets/f711ead1-37aa-4f78-9208-241d76340cff" />
+<img width="1860" height="963" alt="hash 2" src="https://github.com/user-attachments/assets/bfbf63b8-0170-48f8-92e8-a715fdbf6b1c" />
+
+
 ## 🛠️ Tech Stack
 
 * React
