@@ -1,16 +1,82 @@
-# React + Vite
+# Hashtag
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Hashtag** is the official website of our development team, built to introduce our team, showcase our work, and provide a professional presence on the web.
 
-Currently, two official plugins are available:
+The project focuses on a modern, responsive interface with smooth interactions and a clean user experience across different screen sizes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+* Responsive design for desktop, tablet, and mobile
+* Modern and interactive user interface
+* Smooth animations and transitions
+* Client-side routing
+* Reusable React components
+* Responsive navigation
+* Optimized frontend structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+* React
+* JavaScript
+* Vite
+* Tailwind CSS
+* React Router
+* Framer Motion
+* Anime.js
+* Lucide React
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌐 Live Website
+
+[hashtagteam.ir](https://hashtagteam.ir)
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/itsmatiow/Hashtag.git
+```
+
+### 2. Navigate to the project
+
+```bash
+cd Hashtag
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+The project will be available at the local development URL provided by Vite.
+
+## 👥 Team Project
+
+Hashtag was developed as a collaborative project by our development team.
+
+### My Role
+
+I contributed to the frontend development of the project using React, JavaScript, and Tailwind CSS.
+
+My contributions included implementing UI components, responsive layouts, interactions, and frontend functionality.
+
+## 📁 Project Structure
+
+```text
+src/
+├── components/
+├── pages/
+├── ...
+public/
+```
+
+## 📄 License
+
+This project is developed for the Hashtag development team.
