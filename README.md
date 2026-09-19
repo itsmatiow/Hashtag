@@ -61,11 +61,10 @@ The project will be available at the local development URL provided by Vite.
 
 Hashtag was developed as a collaborative project by our development team.
 
-### My Role
+## 👨‍💻 My Role
 
-I contributed to the frontend development of the project using React, JavaScript, and Tailwind CSS.
+I was responsible for the complete frontend development of the Hashtag website, including UI implementation, responsive layouts, reusable React components, animations, navigation, and overall frontend functionality.
 
-My contributions included implementing UI components, responsive layouts, interactions, and frontend functionality.
 
 ## 📁 Project Structure
 
